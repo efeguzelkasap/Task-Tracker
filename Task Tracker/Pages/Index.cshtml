@@ -1,0 +1,72 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<body id="page-top" style="background-image: url('https://mdbootstrap.com/img/Photos/new-templates/tables/img2.jpg');">
+    
+
+    <div class="container px-4 px-lg-5 text-center">
+        <h1 class="mb-1">Current Tasks</h1>
+        <h3 class="mb-5"><em></em></h3>
+    <!-- Header-->
+    <header>
+        <section class="intro">
+            <div class="bg-image">
+                <div class="mask ">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-12">
+                                <div class="card bg-dark shadow-2-strong">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-dark table-bordered table-hover mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Project</th>
+                                                        <th scope="col">Title</th>
+                                                        <th scope="col">IssueType</th>
+                                                        <th scope="col">Description</th>
+                                                        <th scope="col">Created At</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach (var item in Model.Tasks)
+                                                    {
+                                                        <tr>
+                                                            <td>@item.project</td>
+                                                            <td>@item.title</td>
+                                                            <td>@item.issueType</td>
+                                                            <td>@item.description</td>
+                                                            <td>@item.createdAt</td>
+                                                            <td>
+                                                                <a class="btn btn-primary btn-sm" href="/Tasks/Edit?id=@item.id">Edit</a>
+                                                                <a class="btn btn-danger btn-sm" href="/Tasks/Delete?id=@item.id">Delete</a>
+                                                            </td>
+                                                        </tr>
+                                                    }
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </header>
+    </div>
+    
+   
+    
+   
+   
+</body>
+
+
+
+

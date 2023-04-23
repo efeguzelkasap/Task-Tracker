@@ -1,0 +1,37 @@
+﻿@page
+@model Task_Tracker.Pages.Tasks.EditModel
+@{
+}
+
+<br>
+<h2>Edit New Task</h2>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+        <strong>@Model.errorMessage</strong>
+        <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>
+    </div>
+}
+
+<form method="post">
+    <input type="hidden" name="id" value="@Model.taskInfo.id">
+    <div class="form-group">
+        <label for="Project">Project</label>
+        <input class="form-control" name="project" rows="1" value="@Model.taskInfo.project">
+    </div>
+    <div class="form-group">
+        <label for="Task">Title</label>
+        <input class="form-control" name="title" rows="1" value="@Model.taskInfo.title">
+    </div>
+    <div class="form-group">
+        <label for="Type">Issue Type</label>
+        <input class="form-control" name="issueType" rows="1" value="@Model.taskInfo.issueType">
+    </div>
+    <div class="form-group">
+        <label for="Description">Description</label>
+        <input class="form-control" name="description" rows="3" value="@Model.taskInfo.description">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
